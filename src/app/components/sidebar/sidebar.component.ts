@@ -1,6 +1,8 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { navbarData } from './nav-data';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
+import { INavbarData } from './helper';
+import { Router } from '@angular/router';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -33,6 +35,7 @@ export class SidebarComponent implements OnInit {
   collapsed = false;
   screenWidth = 0;
   navData = navbarData;
+  multiple: boolean = false;
 
   @HostListener('window:reszie', ['$event'])
   onResize(event: any) {
@@ -42,6 +45,8 @@ export class SidebarComponent implements OnInit {
       this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
     }
   }
+
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
@@ -55,5 +60,20 @@ export class SidebarComponent implements OnInit {
   closeSidenav(): void {
     this.collapsed = false;
     this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
+  }
+
+  handleClick(item: INavbarData): void {
+    if(!this.multiple) {
+      for(let modelItem of this.navData) {
+        if(item !== modelItem && modelItem.expanded) {
+          modelItem.expanded = false;
+        }
+      }
+    }
+    item.expanded = !item.expanded;
+  }
+
+  getActiveClass(data: INavbarData): string {
+    return this.router.url.includes(data.routeLink) ? 'active' : '';
   }
 }

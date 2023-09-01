@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { BodyComponent } from './components/body/body.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SublevelMenuComponent } from './components/sidebar/sublevel-menu.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     SidebarComponent,
     BodyComponent,
     DashboardComponent,
+    SublevelMenuComponent,
   ],
   imports: [
     BrowserModule,

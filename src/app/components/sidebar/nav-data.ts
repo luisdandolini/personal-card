@@ -1,17 +1,55 @@
-export const navbarData = [
+import { INavbarData } from "./helper";
+
+export const navbarData: INavbarData[] = [
   {
     routeLink: 'dashboard',
     icon: 'fal fa-home',
-    label: 'Dashboard'
+    label: 'Dashboard',
   },
   {
-    routeLink: 'settings',
+    routeLink: 'users',
     icon: 'fal fa-user',
-    label: 'Settings'
+    label: 'Users',
+    items: [
+      {
+        routeLink: 'users/created',
+        label: 'Created'
+      },
+      {
+        routeLink: 'users/read',
+        label: 'Read'
+      },
+      {
+        routeLink: 'users/update',
+        label: 'Updated'
+      },
+      {
+        routeLink: 'users/delete',
+        label: 'Delete'
+      },
+    ]
   },
   {
-    routeLink: 'pages',
+    routeLink: 'posts',
     icon: 'fal fa-file',
-    label: 'Pages'
+    label: 'Posts',
+    items: [
+      {
+        routeLink: 'posts/created',
+        label: 'Created'
+      },
+      {
+        routeLink: 'posts/read',
+        label: 'Read'
+      },
+      {
+        routeLink: 'posts/update',
+        label: 'Updated'
+      },
+      {
+        routeLink: 'posts/delete',
+        label: 'Delete'
+      },
+    ]
   },
 ];
