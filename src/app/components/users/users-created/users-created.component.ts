@@ -39,10 +39,12 @@ export class UsersCreatedComponent{
   }
 
   showModal() {
+    console.log('Modal visível:', this.isModalVisible);
     this.isModalVisible = true;
   }
-
+  
   hideModal() {
+    console.log('Modal visível:', this.isModalVisible);
     this.isModalVisible = false;
   }
 
