@@ -1,1 +1,26 @@
-<p>users-read works!</p>
+<h1>List Users</h1>
+
+<div class="container-list-users">
+  <div>
+    <div *ngFor="let user of users; let i = index" class="list-users" [ngClass]="{'black-bg': i % 2 === 0, 'blue-bg': i % 2 !== 0}">
+      <p><span class="title">ID:</span> {{user.id}}</p>
+      <p><span class="title">Name:</span> {{user.name}}</p>
+      <p><span class="title">E-mail:</span> {{user.email}}</p>
+      <div class="gender">
+        <i [ngClass]="user.gender === 'male' ? 'male' : 'woman'" class="fa fa-user"></i>
+      </div>
+      <div class="status">
+        <p><span class="title">Status:</span></p> 
+        <div [ngClass]="user.status === 'active' ? 'active' : 'no-active'"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pagination">
+  <button class="previous" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+  <span class="page">{{ currentPage }}</span>
+  <button class="next" (click)="nextPage()">Next</button>
+</div>
+
+<span class="loader" *ngIf="isLoading"></span>
