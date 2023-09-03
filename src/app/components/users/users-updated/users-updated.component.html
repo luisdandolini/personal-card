@@ -1,1 +1,48 @@
-<p>users-updated works!</p>
+<h1>Uptated Users</h1>
+
+<div class="container-list-users">
+  <div>
+    <div *ngFor="let user of users; let i = index" class="list-users" [ngClass]="{'black-bg': i % 2 === 0, 'blue-bg': i % 2 !== 0}">
+      <p><span class="title">ID:</span> {{user.id}}</p>
+      <p><span class="title">Name:</span> {{user.name}}</p>
+      <p><span class="title">E-mail:</span> {{user.email}}</p>
+      <div class="gender">
+        <i [ngClass]="user.gender === 'male' ? 'male' : 'woman'" class="fa fa-user"></i>
+      </div>
+      <div class="status">
+        <p><span class="title">Status:</span></p> 
+        <div [ngClass]="user.status === 'active' ? 'active' : 'no-active'"></div>
+      </div>
+      <div class="edit-user">
+        <i class="fa fa-edit" (click)="editUser(user)"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showModal" class="modal-overlay">
+  <div class="modal-content">
+    <form #userForm="ngForm" (ngSubmit)="updatedUsers(userForm)">
+      <div class="form">
+        <p><span class="title">ID:</span> {{user.id}}</p>
+        <p class="form-content"><span class="title">Name:</span> <input type="text" name="name" [(ngModel)]="user.name" /></p>
+        <p class="form-content"><span class="title">E-mail:</span> <input type="text" name="email" [(ngModel)]="user.email" /></p>
+        <p class="form-content"><span class="title">Gender:</span> <input type="text" name="gender" [(ngModel)]="user.gender" /></p>
+        <p class="form-content"><span class="title">Status:</span> <input type="text" name="status" [(ngModel)]="user.status" /></p>
+      </div>
+      
+      <div class="container-buttons">
+        <button class="save" type="submit">Save Changes</button>
+        <button class="modal-close" (click)="closeModal()">Close</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="pagination">
+  <button class="previous" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+  <span class="page">{{ currentPage }}</span>
+  <button class="next" (click)="nextPage()">Next</button>
+</div>
+
+<span class="loader" *ngIf="isLoading"></span>

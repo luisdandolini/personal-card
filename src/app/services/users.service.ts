@@ -21,6 +21,8 @@ export class UsersService {
     })
   }
 
+  // Get Users
+
   getUsers(): Observable<Users[]> {
     return this.HttpClient.get<Users[]>(this.url, this.httpOptions)
       .pipe(
@@ -28,6 +30,8 @@ export class UsersService {
         catchError(this.handleError)
       )
   }
+
+  // Get Users with pagination
 
   getUsersWithPagination(page: number, perPage: number): Observable<Users[]> {
     const params = new HttpParams()
@@ -41,12 +45,24 @@ export class UsersService {
       );
   }
 
+  // Add Users
+
   saveUser(user: Users): Observable<Users> {
     return this.HttpClient.post<Users>(this.url, JSON.stringify(user), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
+  }
+
+  // Update Users
+
+  updateUser(user: Users): Observable<Users> {
+    return this.HttpClient.put<Users>(this.url + '/' + user.id, JSON.stringify(user), this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
   }
 
   handleError(error: HttpErrorResponse) {

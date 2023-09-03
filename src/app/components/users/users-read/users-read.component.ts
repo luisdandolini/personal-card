@@ -29,7 +29,6 @@ export class UsersReadComponent implements OnInit{
       .subscribe({
         next: (data: Users[]) => {
           this.users = data;
-          console.log(this.users);
           this.isLoading = false;
         },
         error: (error) => {
