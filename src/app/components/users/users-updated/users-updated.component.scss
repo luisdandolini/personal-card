@@ -193,3 +193,16 @@
   margin-top: 1rem;
   gap: 1rem;
 }
+
+@media(max-width: 980px) {
+  .list-users {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    text-align: left;
+    flex-direction: column;
+  }
+}

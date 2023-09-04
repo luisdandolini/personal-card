@@ -97,3 +97,33 @@
 .visible {
   display: flex;
 }
+
+@media(max-width: 980px) {
+  .form-created-post {
+    .input {
+      display: flex;
+      flex-direction: column;
+      width: 250px;
+      margin-bottom: 1rem;
+  
+      label {
+        margin-bottom: .5rem;
+      }
+  
+      input,
+      select {
+        height: 30px;
+        border: none;
+        border-radius: .5rem;
+        padding-left: 1rem;
+      }
+    }
+  
+    .container-options {
+      display: flex;
+      justify-content: center;
+      width: 250px;
+      gap: 1rem;
+    }
+  }
+}

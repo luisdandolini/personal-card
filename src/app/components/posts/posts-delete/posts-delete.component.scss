@@ -2,7 +2,7 @@
   border: 1px solid black;
   border-radius: .5rem;
   margin-top: 2rem;
-  .list-users {
+  .list-post {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -235,5 +235,19 @@
       font-size: 3rem;
       color: red;
     }
+  }
+}
+
+
+@media(max-width: 980px) {
+  .list-posts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    text-align: left;
+    flex-direction: column;
   }
 }
