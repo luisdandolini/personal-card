@@ -13,6 +13,8 @@ export class PostsReadComponent implements OnInit{
   currentPage = 1;
   perPage = 6;    
   isLoading = false;
+  searchTerm: string = '';
+  filteredPosts: Posts[] = [];
 
   constructor(private postService: PostsService) {
   }
@@ -49,4 +51,10 @@ export class PostsReadComponent implements OnInit{
     }
   }
 
+
+  searchPosts(): void {
+    this.filteredPosts = this.posts.filter(post =>
+      post.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
 }
