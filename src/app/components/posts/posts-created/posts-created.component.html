@@ -1,1 +1,32 @@
-<p>posts-created works!</p>
+<h1>Created Post</h1>
+
+<form class="form-created-post" #userForm="ngForm" (ngSubmit)="savePosts(userForm)">
+  <div class="form-post">
+    <div class="input">
+      <label for="user_id">User_id</label>
+      <input type="number" id="user_id" name="user_id" [(ngModel)]="post.user_id" required>
+    </div>
+
+    <div class="input">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" [(ngModel)]="post.title" required>
+    </div>
+
+    <div class="input">
+      <label for="email">Body:</label>
+      <textarea name="email" id="email" cols="30" rows="10" [(ngModel)]="post.body" required></textarea>
+    </div>
+  </div>
+
+  <div class="container-buttons">
+    <button class="create" type="submit">Post Create</button>
+    <button class="clear" type="reset" (click)="cleanForm(userForm)">Clear</button>
+  </div>
+</form>
+
+<div class="modal" [ngClass]="{ 'visible': isModalVisible }">
+  <div class="modal-content">
+    <h2>Sucesso!</h2>
+    <p>O POST foi criado com sucesso.</p>
+  </div>
+</div>

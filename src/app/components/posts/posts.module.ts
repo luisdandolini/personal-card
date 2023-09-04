@@ -7,6 +7,7 @@ import { PostsCreatedComponent } from './posts-created/posts-created.component';
 import { PostsReadComponent } from './posts-read/posts-read.component';
 import { PostsUpdatedComponent } from './posts-updated/posts-updated.component';
 import { PostsDeleteComponent } from './posts-delete/posts-delete.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PostsDeleteComponent } from './posts-delete/posts-delete.component';
   ],
   imports: [
     CommonModule,
-    PostsRoutingModule
+    PostsRoutingModule,
+    FormsModule
   ]
 })
 export class PostsModule { }
