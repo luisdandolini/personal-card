@@ -65,6 +65,16 @@ export class PostsService {
       )
     }
 
+    // Delete Posts
+
+  deleteUser(user: Posts) {
+    return this.HttpClient.delete<Posts>(this.url + '/' + user.id, this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

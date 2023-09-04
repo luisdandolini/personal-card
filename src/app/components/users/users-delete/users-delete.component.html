@@ -22,7 +22,7 @@
 
 <div *ngIf="showConfirmationModal" class="confirmation-modal">
   <div class="confirmation-modal-content">
-    <h2>Tem certeza de que deseja excluir o usuário <span class="user-delete">{{ userToDeleteName }}</span>?</h2>
+    <h2>Are you sure you want to delete the user: <span class="user-delete">{{ userToDeleteName }}</span>?</h2>
     <div class="container-buttons">
       <i class="fa fa-check confirm" (click)="confirmDelete()"></i>
       <i class="fa fa-times close" (click)="cancelDelete()"></i>
