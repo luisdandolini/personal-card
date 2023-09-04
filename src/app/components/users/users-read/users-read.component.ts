@@ -12,7 +12,8 @@ export class UsersReadComponent implements OnInit{
   currentPage = 1;
   perPage = 10;   
   isLoading = false;
-
+  searchTerm: string = '';
+  filteredUsers: Users[] = [];
 
   constructor(private userService: UsersService) {
     this.users = [];
@@ -48,5 +49,12 @@ export class UsersReadComponent implements OnInit{
       this.currentPage--;
       this.getUsers();
     }
+  }
+
+  searchUsers(): void {
+    this.filteredUsers = this.users.filter(user =>
+      user.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      user.email.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 }

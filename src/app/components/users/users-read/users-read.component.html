@@ -1,17 +1,38 @@
 <h1>List Users</h1>
 
+<div class="search-user">
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Search the user for name or E-mail" (input)="searchUsers()">
+</div>
+
 <div class="container-list-users">
   <div>
-    <div *ngFor="let user of users; let i = index" class="list-users" [ngClass]="{'black-bg': i % 2 === 0, 'blue-bg': i % 2 !== 0}">
-      <p><span class="title">ID:</span> {{user.id}}</p>
-      <p><span class="title">Name:</span> {{user.name}}</p>
-      <p><span class="title">E-mail:</span> {{user.email}}</p>
-      <div class="gender">
-        <i [ngClass]="user.gender === 'male' ? 'male' : 'woman'" class="fa fa-user"></i>
+    <div *ngIf="searchTerm">
+      <div *ngFor="let user of filteredUsers; let i = index" class="list-users" [ngClass]="{'black-bg': i % 2 === 0, 'blue-bg': i % 2 !== 0}">
+        <p><span class="title">ID:</span> {{user.id}}</p>
+        <p><span class="title">Name:</span> {{user.name}}</p>
+        <p><span class="title">E-mail:</span> {{user.email}}</p>
+        <div class="gender">
+          <i [ngClass]="user.gender === 'male' ? 'male' : 'woman'" class="fa fa-user"></i>
+        </div>
+        <div class="status">
+          <p><span class="title">Status:</span></p> 
+          <div [ngClass]="user.status === 'active' ? 'active' : 'no-active'"></div>
+        </div>
       </div>
-      <div class="status">
-        <p><span class="title">Status:</span></p> 
-        <div [ngClass]="user.status === 'active' ? 'active' : 'no-active'"></div>
+    </div>
+
+    <div *ngIf="!searchTerm">
+      <div *ngFor="let user of users; let i = index" class="list-users" [ngClass]="{'black-bg': i % 2 === 0, 'blue-bg': i % 2 !== 0}">
+        <p><span class="title">ID:</span> {{user.id}}</p>
+        <p><span class="title">Name:</span> {{user.name}}</p>
+        <p><span class="title">E-mail:</span> {{user.email}}</p>
+        <div class="gender">
+          <i [ngClass]="user.gender === 'male' ? 'male' : 'woman'" class="fa fa-user"></i>
+        </div>
+        <div class="status">
+          <p><span class="title">Status:</span></p> 
+          <div [ngClass]="user.status === 'active' ? 'active' : 'no-active'"></div>
+        </div>
       </div>
     </div>
   </div>
