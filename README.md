@@ -1,27 +1,32 @@
-# PersonalCard
+# Dashboard User and Post
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+This is an application built in Angular, with the objective to create, update, list and delete a user or post.
 
-## Development server
+## Link to Production App:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+https://personal-card-git-api-luisdandolini.vercel.app/dashboard
 
-## Code scaffolding
+## Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular
+- SCSS
 
-## Build
+## Requirements to Run:
+- Node.js (https://nodejs.org/en)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Running Instructions
 
-## Running unit tests
+1. Clone the project: 
+```
+https://github.com/luisdandolini/personal-card.git
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Install the dependecies: 
+```
+cd personal-card && npm install
+```
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Run the project:
+```
+ng serve
+```
