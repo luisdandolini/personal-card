@@ -55,6 +55,16 @@ export class PostsService {
       )
   }
 
+    // Update Posts
+
+    updatePosts(user: Posts): Observable<Posts> {
+      return this.HttpClient.put<Posts>(this.url + '/' + user.id, JSON.stringify(user), this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+    }
+
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
