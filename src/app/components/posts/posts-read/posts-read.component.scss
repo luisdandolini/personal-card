@@ -1,0 +1,147 @@
+.container-list-post {
+  border: 1px solid black;
+  border-radius: .5rem;
+  margin-top: 2rem;
+  .content-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .list-posts {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    padding: 1rem;
+    border-radius: .4rem;
+    text-align: left; 
+  }
+  .black-bg {
+    background-color: rgb(235, 235, 235);
+    color: #000; 
+  }
+  
+  .blue-bg {
+    background-color: rgb(242, 242, 242);
+    color: #000; 
+  }
+  .title {
+    font-weight: 700;
+  }
+  .status {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    .active {
+      background-color: rgb(125, 205, 7);
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+    }
+    .no-active {
+      background-color: rgb(207, 25, 25);
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+    }
+  }
+  .gender { 
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    .male {
+      color: #0d00ff;
+    }
+    .woman {
+      color: #ffc0cb;
+    }
+  }
+}
+
+.pagination {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  button {
+    width: 100px;
+    border: none;
+  }
+  .previous {
+    background-color: #8690a3;
+    color: #fff;
+    border-radius: .3rem;
+    box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+    padding: .3rem;
+    cursor: pointer;
+  }
+  .next {
+    background-color: #263238;
+    color: #fff;
+    border-radius: .3rem;
+    box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+    padding: .3rem;
+    cursor: pointer;
+  }
+  .page {
+    background-color: #ff879b;
+    padding: .5rem;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: #FF3D00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+
+@keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+} 
+
+.search-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input {
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+  }
+}
+
+
+@media(max-width: 980px) {
+  .list-posts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    text-align: left;
+    flex-direction: column;
+  }
+}

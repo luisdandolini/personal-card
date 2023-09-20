@@ -7,6 +7,7 @@ import { UsersCreatedComponent } from './users-created/users-created.component';
 import { UsersReadComponent } from './users-read/users-read.component';
 import { UsersUpdatedComponent } from './users-updated/users-updated.component';
 import { UsersDeleteComponent } from './users-delete/users-delete.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { UsersDeleteComponent } from './users-delete/users-delete.component';
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    FormsModule
   ]
 })
 export class UsersModule { }

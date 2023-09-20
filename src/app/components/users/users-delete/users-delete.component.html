@@ -1,1 +1,39 @@
-<p>users-delete works!</p>
+<h1>Delete Users</h1>
+
+<div class="container-list-users">
+  <div>
+    <div *ngFor="let user of users; let i = index" class="list-users" [ngClass]="{'black-bg': i % 2 === 0, 'blue-bg': i % 2 !== 0}">
+      <p><span class="title">ID:</span> {{user.id}}</p>
+      <p><span class="title">Name:</span> {{user.name}}</p>
+      <p><span class="title">E-mail:</span> {{user.email}}</p>
+      <div class="gender">
+        <i [ngClass]="user.gender === 'male' ? 'male' : 'woman'" class="fa fa-user"></i>
+      </div>
+      <div class="status">
+        <p><span class="title">Status:</span></p> 
+        <div [ngClass]="user.status === 'active' ? 'active' : 'no-active'"></div>
+      </div>
+      <div class="edit-user">
+        <i class="fa fa-trash" (click)="deleteUser(user)"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showConfirmationModal" class="confirmation-modal">
+  <div class="confirmation-modal-content">
+    <h2>Are you sure you want to delete the user: <span class="user-delete">{{ userToDeleteName }}</span>?</h2>
+    <div class="container-buttons">
+      <i class="fa fa-check confirm" (click)="confirmDelete()"></i>
+      <i class="fa fa-times close" (click)="cancelDelete()"></i>
+    </div>
+  </div>
+</div>
+
+<div class="pagination">
+  <button class="previous" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+  <span class="page">{{ currentPage }}</span>
+  <button class="next" (click)="nextPage()">Next</button>
+</div>
+
+<span class="loader" *ngIf="isLoading"></span>

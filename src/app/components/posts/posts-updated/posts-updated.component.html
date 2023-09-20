@@ -1,1 +1,42 @@
-<p>posts-updated works!</p>
+<h1>Uptated Posts</h1>
+
+<div class="container-list-post">
+  <div>
+    <div *ngFor="let post of posts; let i = index" class="list-post" [ngClass]="{'black-bg': i % 2 === 0, 'blue-bg': i % 2 !== 0}">
+      <p><span class="title">ID:</span> {{post.id}}</p>
+      <p><span class="title">Name:</span> {{post.title}}</p>
+      <p><span class="title">E-mail:</span> {{post.body}}</p>
+      <div class="edit-user">
+        <i class="fa fa-edit" (click)="editPost(post)"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showModal" class="modal-overlay">
+  <div class="modal-content">
+    <form #userForm="ngForm" (ngSubmit)="updatedPost(userForm)">
+      <div class="form">
+        <p><span class="title">ID:</span> {{post.id}}</p>
+        <p class="form-content"><span class="title">Title:</span> <input type="text" name="title" [(ngModel)]="post.title" /></p>
+        <p class="form-content">
+          <span class="title">Body:</span> 
+          <textarea class="title" name="body" id="" cols="30" rows="10" [(ngModel)]="post.body"></textarea>
+        </p>
+      </div>
+      
+      <div class="container-buttons">
+        <button class="save" type="submit">Save Changes</button>
+        <button class="modal-close" (click)="closeModal()">Close</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="pagination">
+  <button class="previous" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+  <span class="page">{{ currentPage }}</span>
+  <button class="next" (click)="nextPage()">Next</button>
+</div>
+
+<span class="loader" *ngIf="isLoading"></span>

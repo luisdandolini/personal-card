@@ -1,1 +1,33 @@
-<p>posts-delete works!</p>
+<h1>Delete Post</h1>
+
+<div class="container-list-post">
+  <div>
+    <div *ngFor="let post of posts; let i = index" class="list-posts" [ngClass]="{'black-bg': i % 2 === 0, 'blue-bg': i % 2 !== 0}">
+      <p class="content-post"><span class="title">ID:</span> {{post.id}}</p>
+      <p class="content-post"><span class="title">User_id:</span> {{post.user_id}}</p>
+      <p class="content-post"><span class="title">Title:</span> {{post.title}}</p>
+      <p class="content-post"><span class="title">Body:</span> {{post.body}}</p>
+      <div class="edit-user">
+        <i class="fa fa-trash" (click)="deletePost(post)"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showConfirmationModal" class="confirmation-modal">
+  <div class="confirmation-modal-content">
+    <h2>Are you sure you want to delete the ID: <span class="user-delete">{{ postToDeleteID }}</span>?</h2>
+    <div class="container-buttons">
+      <i class="fa fa-check confirm" (click)="confirmDelete()"></i>
+      <i class="fa fa-times close" (click)="cancelDelete()"></i>
+    </div>
+  </div>
+</div>
+
+<div class="pagination">
+  <button class="previous" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+  <span class="page">{{ currentPage }}</span>
+  <button class="next" (click)="nextPage()">Next</button>
+</div>
+
+<span class="loader" *ngIf="isLoading"></span>

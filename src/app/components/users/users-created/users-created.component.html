@@ -1,1 +1,43 @@
-<p>users-created works!</p>
+<h1>Created User</h1>
+
+<form class="form-created-user" #userForm="ngForm" (ngSubmit)="saveUser(userForm)">
+  <div class="form-user">
+    <div class="input">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="user.name" required>
+    </div>
+  
+    <div class="input">
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+    </div>
+
+    <div class="container-options">
+      <div class="input">
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender" [(ngModel)]="user.gender" required>
+          <option *ngFor="let genderOption of genderOptions" [value]="genderOption">{{ genderOption }}</option>
+        </select>
+      </div>
+    
+      <div class="input">
+        <label for="status">Status:</label>
+        <select name="status" id="status" [(ngModel)]="user.status" required>
+          <option *ngFor="let statusOption of statusOptions" [value]="statusOption">{{ statusOption }}</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="container-buttons">
+      <button class="create" type="submit">User Create</button>
+      <button class="clear" type="reset" (click)="cleanForm(userForm)">Clear</button>
+    </div>
+  </div>
+</form>
+
+<div class="modal" [ngClass]="{ 'visible': isModalVisible }">
+  <div class="modal-content">
+    <h2>Sucesso!</h2>
+    <p>O usuário foi criado com sucesso.</p>
+  </div>
+</div>
